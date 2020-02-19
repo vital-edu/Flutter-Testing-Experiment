@@ -1,4 +1,7 @@
+import 'dart:math';
+
 class Weather {
+  String id;
   WeatherElement weather;
   double temp;
   int pressure;
@@ -10,6 +13,7 @@ class Weather {
   String cityName;
 
   Weather({
+    this.id,
     this.weather,
     this.temp,
     this.pressure,
@@ -22,6 +26,7 @@ class Weather {
   });
 
   factory Weather.fromJson(Map<String, dynamic> json) => Weather(
+        id: json['id'].toString() ?? Random.secure().toString(),
         weather: WeatherElement.fromJson(json['weather'][0]),
         temp: json['main']['temp'].toDouble(),
         pressure: json['main']['pressure'],
