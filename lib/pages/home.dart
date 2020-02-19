@@ -15,7 +15,6 @@ class Home extends StatefulWidget {
   _HomeState createState() => _HomeState();
 }
 
-@visibleForTesting
 class _HomeState extends State<Home> {
   final TextEditingController _textEditingController;
   Weather _weather;
@@ -25,6 +24,8 @@ class _HomeState extends State<Home> {
   void onGetWeather() async {
     Weather weather = await widget.service
         .getCurrentWeatherForecat(cityName: _textEditingController.text);
+
+    _textEditingController.text = '';
 
     setState(() {
       _weather = weather;

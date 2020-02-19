@@ -11,7 +11,7 @@ import '../fixtures/weather_fixture.dart';
 class MockClient extends Mock implements http.Client {}
 
 void main() {
-  testWidgets('Button calls weather service on press', (
+  testWidgets('insert and remove forecast of searched city', (
     WidgetTester tester,
   ) async {
     // http client mock

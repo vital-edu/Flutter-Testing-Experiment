@@ -29,10 +29,7 @@ class WeatherService {
   }
 
   String buildUrl({String params = ''}) {
-    String separator = '&';
-    if (params == null || params.isEmpty) {
-      separator = '';
-    }
+    String separator = (params == null || params.isEmpty) ? '' : '&';
     return Uri.encodeFull(
       '$BASE_URL?$params${separator}appid=$_apiKey&lang=pt_br&units=metric',
     );
