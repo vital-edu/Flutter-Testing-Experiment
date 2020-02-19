@@ -55,6 +55,7 @@ class _HomeState extends State<Home> {
               children: <Widget>[
                 Expanded(
                   child: TextField(
+                    key: Key('searchCityTextField'),
                     decoration: InputDecoration(
                       labelText: 'Cidade',
                       border: OutlineInputBorder(
@@ -69,7 +70,8 @@ class _HomeState extends State<Home> {
                   width: 8,
                 ),
                 FlatButton(
-                  child: Text('Consultar Previsão do Tempo'),
+                  key: Key('searchButton'),
+                  child: Text('Buscar'),
                   padding: EdgeInsets.all(20),
                   color: Colors.blueAccent,
                   onPressed: onGetWeather,
@@ -82,6 +84,7 @@ class _HomeState extends State<Home> {
               ? Dismissible(
                   key: Key(_weather.id),
                   child: Card(
+                    key: Key('cityForecastCard'),
                     child: Padding(
                       padding:
                           EdgeInsets.symmetric(vertical: 16, horizontal: 20),
@@ -93,7 +96,10 @@ class _HomeState extends State<Home> {
                                 'Cidade: ',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              Text(_weather.cityName),
+                              Text(
+                                _weather.cityName,
+                                key: Key('cityName'),
+                              ),
                             ],
                           ),
                           Row(
@@ -102,7 +108,10 @@ class _HomeState extends State<Home> {
                                 'Temperatura: ',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              Text('${_weather.temp} ºC'),
+                              Text(
+                                '${_weather.temp} ºC',
+                                key: Key('temperature'),
+                              ),
                             ],
                           ),
                           Row(
@@ -111,7 +120,10 @@ class _HomeState extends State<Home> {
                                 'Velocidade do vento: ',
                                 style: TextStyle(fontWeight: FontWeight.bold),
                               ),
-                              Text('${_weather.windSpeed} m/s'),
+                              Text(
+                                '${_weather.windSpeed} m/s',
+                                key: Key('windSpeed'),
+                              ),
                             ],
                           ),
                         ],

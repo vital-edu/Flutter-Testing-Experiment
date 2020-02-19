@@ -27,9 +27,15 @@ dependencies:
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  test: any
   flutter_test:
     sdk: flutter
+  flutter_driver:
+    sdk: flutter
   mockito: ^4.1.1
+
+dependency_overrides:
+  file_testing: ^2.0.3
 
 
 # For information on the generic Dart part of this file, see the
